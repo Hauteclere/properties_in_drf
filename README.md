@@ -1,4 +1,4 @@
-# Using "Properties" In DRF
+<h1>Using "Properties" In DRF</h1>
 
 We often hear questions like this in our She Codes classes during the Django Rest Framework module:
 
@@ -11,12 +11,26 @@ Good news: there are a lot of ways to do this! You're at the point in your codin
 
 To prove this point, I'll mention a couple of slightly more "naive" approaches (these are totally fine to use if you need a quick fix!) and then I'll demonstrate a slightly more "elegant" solution. But these aren't the only options!
 
+<h2>Table of Contents</h2>
+
+- [Quick Fix #1: Offload this work to the front end.](#quick-fix-1-offload-this-work-to-the-front-end)
+- [Quick Fix #2: Write some custom code to solve the problem.](#quick-fix-2-write-some-custom-code-to-solve-the-problem)
+- [A Slightly More Elegant Solution](#a-slightly-more-elegant-solution)
+  - [Decorators](#decorators)
+  - ["Classes" Revision:](#classes-revision)
+    - [Attributes](#attributes)
+    - [Methods](#methods)
+  - [Properties](#properties)
+  - [Putting It All Together](#putting-it-all-together)
+  - [What Next?](#what-next)
+
 ## Quick Fix #1: Offload this work to the front end.
 Javascript is a powerful programming language. If you have an endpoint that will give you a list of pledges (or ideally, a list of just the pledges made to one specific project) you could easily use some basic mathematics to perform the addition, and then display the result somewhere on your page. 
 
 This is potentially slow, though, and isn't as elegant as other potential solutions. It also just delays the work until the React unit, where you'll likely have other things to worry about.
+
 ## Quick Fix #2: Write some custom code to solve the problem.
-One way to do this might be to create a view that: 
+One way to do accomplish what you need might be to create a view that: 
 1. Accepts a project ID and grabs that project from the database,
 2. Interrogates it to get a list of its linked pledges,
 3. Adds up the contributions from all those pledges, and finally,
@@ -27,7 +41,7 @@ One way to do this might be to create a view that:
         "total_amount_pledged": 9001
     }
     ```
-This works fine, but it involves writing a fair bit of single-use code. One can imagine that down the track you might decide you want another view to display all the money that a given user has donated on the platform, and that would require another view... It might be nicer if we could find a solution that didn't require any extra views...
+This works fine, but it actually isn't such a quick fix. It also involves writing a fair bit of single-use code. One can imagine that down the track you might decide you want another view to display all the money that a given user has donated on the platform. Your endopints are starting to get a bit bloated now... It might be nicer if we could find a solution that didn't require any extra views...
 
 ## A Slightly More Elegant Solution
 
@@ -75,6 +89,9 @@ So what is a property...?
 
 ### Properties
 A **property** is a bit like "a method that can disguise itself as an attribute". It is a function that doesn't require brackets `()` when it is called. 
+
+> [!NOTE]  
+> This isn't the only thing properties can do. Have a read on them later if you're interested: https://docs.python.org/3/library/functions.html#property
 
 We can create a property by simply adding the `@property` decorator to any method. Let's look at an example. Here we've defined a property that loudly alerts you when it gets accessed:
 
