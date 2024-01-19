@@ -125,7 +125,7 @@ So why is this important?
 
 Well, what we'd really like is to just include the sum of all linked pledges in the serialized output of our `ProjectDetailSerializer`. The only problem is, our serializers get their data from our models' fields, and that "sum of pledges" number that we're looking for isn't stored as a field in the database. That means we can't serialize it. To find its value we would need to implement some kind of method to calculate it...
 
-**Brainwave**: all of our models are classes!  Maybe if we use a property instead of a method to calculte the sum, we can trick the serializer into thinking that it is a field attribute and sneak the result into the JSON output!
+**Brainwave**: all of our models are classes!  Maybe if we use a property instead of a method to calculate the sum, we can trick the serializer into thinking that it is a field attribute and sneak the result into the JSON output!
 
 ### Putting It All Together
 Here's what that solution might look like. To keep things interesting, we'll use an unrelated example. Applying this pattern to your models for the Crowdfunding project is left as an exercise to the reader:
