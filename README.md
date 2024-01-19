@@ -128,7 +128,7 @@ Well, what we'd really like is to just include the sum of all linked pledges in 
 **Brainwave**: all of our models are classes!  Maybe if we use a property instead of a method to calculate the sum, we can trick the serializer into thinking that it is a field attribute and sneak the result into the JSON output!
 
 ### Putting It All Together
-Here's what that solution might look like. To keep things interesting, we'll use an unrelated example. Applying this pattern to your models for the Crowdfunding project is left as an exercise to the reader:
+Here's what that solution might look like. To keep things interesting, we'll use an unrelated example. Applying this pattern to your models for the Crowdfunding project is left as an exercise to the reader.
 
 In this example we have **teachers** and **subjects**. Each `subject` has a `number_of_students` field, and is attached to a `teacher` instance. We want to include a value for `total_number_of_students` in our serialised data at the `/teacher_details/<int:pk>/` endpoint.
 
