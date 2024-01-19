@@ -9,7 +9,7 @@ We often hear questions like this in our She Codes classes during the Django Res
 
 Good news: there are a lot of ways to do this! You're at the point in your coding journey now where your tools can accomplish almost anything, so solving problems like this are a bit of a "choose your own adventure" story.
 
-To prove this point, I'll mention a couple of slightly more "naive" approaches (these are totally fine to use if you need a quick fix!) and then I'll demonstrate a slightly more "elegant" solution. But these aren't the only options!
+To prove this point, I'll mention a couple of "quick-fix" solutions and then I'll demonstrate a slightly more "elegant" solution. But these aren't the only options!
 
 <h2>Table of Contents</h2>
 
