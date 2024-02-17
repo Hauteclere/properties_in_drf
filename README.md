@@ -139,7 +139,7 @@ First, let's add the property to calculate the value:
 from django.db import models
 
 class Teacher(models.Model):
-	name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
 
 +   @property
 +   def total_number_of_students(self):
@@ -149,13 +149,13 @@ class Teacher(models.Model):
 +       return result
 
 class Subject(models.Model):
-	name = models.IntegerField()
-	number_of_students = models.IntegerField()
+    name = models.IntegerField()
+    number_of_students = models.IntegerField()
     teacher = models.ForeignKey(
         'Teacher',
         on_delete=models.CASCADE,
         related_name='subjects'
-	)
+    )
 ```
 
 > [!NOTE]  
